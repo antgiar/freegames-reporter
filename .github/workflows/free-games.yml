@@ -9,11 +9,20 @@ on:
 permissions:
   contents: write # Needed to push state.json back to the repo.
 
+concurrency:
+  group: free-games-reporter
+  cancel-in-progress: false # Queue runs instead of cancelling, so none are lost.
+
 jobs:
   report:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # Ensure we have the absolute latest state.json, even if a previous
+      # run pushed it after this workflow's checkout SHA was determined.
+      - name: Pull latest state
+        run: git pull --rebase origin main
 
       - uses: actions/setup-python@v5
         with:
@@ -44,5 +53,6 @@ jobs:
             echo "No state changes to commit."
           else
             git commit -m "chore: update sent-games state [skip ci]"
+            git pull --rebase origin main
             git push
           fi
