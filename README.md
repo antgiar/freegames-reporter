@@ -1,6 +1,6 @@
 # Free Games Reporter
 
-A Matrix bot that automatically finds free PC game giveaways and posts them to your Element/Matrix room. Runs weekly via GitHub Actions.
+A Matrix bot that automatically finds free PC game giveaways and posts them to your Element/Matrix room. Runs every 3 days via GitHub Actions.
 
 ## How it works
 
@@ -58,12 +58,12 @@ Go to **Settings → Secrets and variables → Actions** in your GitHub reposito
 
 ### 3. Schedule
 
-The workflow is preconfigured to run **every Monday at 10:00 UTC**. To change the schedule, edit the `cron` expression in [`.github/workflows/free-games.yml`](.github/workflows/free-games.yml):
+The workflow is preconfigured to run **every 3 days at 10:00 UTC**. To change the schedule, edit the `cron` expression in [`.github/workflows/free-games.yml`](.github/workflows/free-games.yml):
 
 ```yaml
 on:
   schedule:
-    - cron: "0 10 * * 1"  # Mon 10:00 UTC
+    - cron: "0 10 */3 * *"  # Every 3 days at 10:00 UTC
 ```
 
 You can also trigger it manually from the **Actions** tab → **Free Games Reporter** → **Run workflow**.
