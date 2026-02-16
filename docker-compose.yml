@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  free_games_bot:
+    build: .
+    environment:
+      - MATRIX_HOMESERVER=https://matrix.org
+      - MATRIX_USER=@freegamesbot:matrix.org
+      - MATRIX_ACCESS_TOKEN=syt_...
+      - MATRIX_ROOM_ID=#myroom:matrix.org
+    volumes:
+      - ./state.json:/app/state.json
+    # Uncomment the next line if you need to expose a port
+    # ports:
+    #   - "80:80"
+    command: ["./entrypoint.sh"]
