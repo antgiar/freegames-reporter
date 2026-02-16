@@ -74,9 +74,9 @@ You can also trigger it manually from the **Actions** tab → **Free Games Repor
 pip install -r requirements.txt
 
 export MATRIX_HOMESERVER="https://yourMatrixHomeServer.org"
-export MATRIX_USER="@freegamesbot:yourMatrixHomeServer.org
+export MATRIX_USER="@freegamesbot:yourMatrixHomeServer.org"
 export MATRIX_ACCESS_TOKEN="syt_..."
-export MATRIX_ROOM_ID="!abcdefg:yourMatrixHomeServer. Org"
+export MATRIX_ROOM_ID="!abcdefg:yourMatrixHomeServer.org"
 export ALLOWED_PLATFORMS="Epic Games Store,Steam,GOG"
 
 python free_games_bot.py
